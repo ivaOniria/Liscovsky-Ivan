@@ -53,11 +53,10 @@ class Servicio {
             }).map(v => v.id);
         }
 
-        let vueloPersistido;
         if (vueloExistente) {
-            vueloPersistido = await this.#model.actualizarVuelo(vuelo.id, vuelo);
+            await this.#model.actualizarVuelo(vuelo.id, vuelo);
         } else {
-            vueloPersistido = await this.#model.guardarVuelo(vuelo);
+            await this.#model.guardarVuelo(vuelo);
         }
 
         return vuelosEnColision.length > 0 ? vuelosEnColision : []
